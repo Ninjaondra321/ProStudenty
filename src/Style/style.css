@@ -1,0 +1,100 @@
+.uk-switcher li {
+    width: min-content !important;
+
+    font-size: 2.625rem;
+    line-height: 1.2;
+    margin-top: 40px;
+}
+
+.uk-switcher li:hover {
+    text-decoration: underline;
+}
+
+.hlavni_nadpisss {
+    margin-top: -25px;
+    display: inline-flex;
+}
+
+.owl-dots {
+    display: none;
+}
+
+.owl-item .uk-card {
+    width: 250px !important;
+}
+
+.owl-stage {
+    margin-right: -30px;
+    padding: 20px;
+    height: 300px !important;
+
+}
+
+.owl-nav button {
+    height: 27px !important;
+    width: 27px !important;
+    background-color: #000 !important;
+    border-radius: 50% !important;
+    color: #fff !important;
+    text-align: center !important;
+    font-size: 20px !important;
+    position: absolute;
+}
+
+.owl-nav .owl-prev {
+    left: 0;
+}
+
+.owl-nav .owl-next {
+    right: 0;
+}
+
+.owl-nav {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -200px !important;
+    margin-bottom: 200px !important;
+}
+
+@media screen and (max-width: 1200px) {
+    .moje-obsah {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1199px) {
+    .moje-main-content-padding-left {
+        margin-left: 300px !important;
+    }
+}
+
+
+.moje-otevirak-na-obsah {
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+
+}
+
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(131, 131, 131);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3b3b3b;
+}
+
+.moje-vyber-predmetu div a div img {
+    height: 190px;
+    width: 100%;
+    opacity: 0.5;
+}
