@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useNavigate, Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
+import SideBarObsah from "../Components/SideBar";
 
 const PredmetTemplate = () => {
   let { predmet, tema } = useParams();
@@ -39,15 +40,20 @@ const PredmetTemplate = () => {
 
   return (
     <div>
-      <h1>{predmetInfo.title}</h1>
-      <p>{predmet}</p>
-      <p>{predmetInfo.color}</p>
 
 
-      <p>{Object.keys(obsah).map((key) => <div><h3>{obsah[key].title} {console.log(obsah[key].title)} </h3> <ul> {obsah[key].contents.map((obj) => <li> <Link to={"/" + predmet + obj.link}>{obj.title}</Link></li>)} </ul></div>)
-      } </p >
+      <div className="tm-sidebar-left uk-visible@m">
 
+        <Link className="uk-link-muted" to={"/" + predmet}>
+          <h3>
+            {predmetInfo.title}</h3>
+        </Link>
 
+        {Object.keys(obsah).map((key) => <ul className="uk-nav uk-nav-default tm-nav"><li className="uk-nav-header">{obsah[key].title} {console.log(obsah[key].title)} </li> <ul> {obsah[key].contents.map((obj) => <li> <Link to={"/" + predmet + obj.link}>{obj.title}</Link></li>)} </ul></ul>)
+        }
+      </div>
+
+      <SideBarObsah obsah={obsah} predmet={predmet} />
 
       <Outlet />
     </div >

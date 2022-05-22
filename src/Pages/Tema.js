@@ -12,6 +12,8 @@ const Tema = () => {
 
   const [prevTema, setPrevTema] = useState('');
 
+  const [listOfIds, setListOfIds] = useState([]);
+
   let navigate = useNavigate();
 
   console.log('Teeemaa')
@@ -21,7 +23,7 @@ const Tema = () => {
       .then(response => { if (response.ok) { return response.text() } else { throw new Error("Chyba") } })
 
       .then(text => setTema_md(text))
-      .then(() => console.log(generateContents()))
+      .then(() => setTimeout(() => { generateContents() }, 10))
       .catch(error => { navigate("/404", { replace: true }) })
 
 
@@ -45,19 +47,40 @@ const Tema = () => {
         listOfIds.push(ids[i].id);
       }
     }
+    setListOfIds(listOfIds);
     console.info(listOfIds);
+
   }
 
 
   return (
-    <div>
-      <h1>Predmet</h1>
-      <p>{predmet}</p>
-      <p>{tema} </p>
+    <div class="tm-main uk-section uk-section-default">
+      <div class="uk-container uk-container-small uk-position-relative">
 
-      <Markdown options={{ slugify: str => str }}>
-        {tema_md}
-      </Markdown>
+        <Markdown options={{ slugify: str => str }}>
+          {tema_md}
+        </Markdown>
+
+
+        <div class="tm-sidebar-right moje-obsah">
+          <div uk-sticky="offset: 160" class="uk-sticky uk-active uk-sticky-below uk-sticky-fixed"
+          // style="position: fixed; top: 160px; width: 200px;"
+          >
+            <ul uk-scrollspy-nav="closest: li; scroll: true; offset: 100 "
+              class="uk-nav uk-nav-default tm-nav uk-nav-parent-icon">
+
+              {listOfIds.map((id) => <li class=""><a href={'#' + id}>{id}</a></li>)}
+              <li class="uk-nav-divider"></li>
+            </ul>
+          </div>
+          <div class="uk-sticky-placeholder"
+          // style="height: 507px; margin: 0px;"
+          ></div>
+        </div>
+
+
+
+      </div>
     </div>
   );
 }
