@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, } from "react-router-dom";
 
 import { useState } from "react";
 import Markdown from "markdown-to-jsx";
@@ -10,16 +10,31 @@ const Tema = () => {
 
   const [tema_md, setTema_md] = useState('Nacitani...');
 
+  const [prevTema, setPrevTema] = useState('');
 
+  let navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/dejepis/napoleon.md")
-      .then(response => response.text())
+  console.log('Teeemaa')
+
+  if (prevTema !== tema) {
+    fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/" + tema + ".md")
+      .then(response => { if (response.ok) { return response.text() } else { throw new Error("Chyba") } })
+
       .then(text => setTema_md(text))
       .then(() => console.log(generateContents()))
-      .catch(error => console.log(error));
+      .catch(error => { navigate("/404", { replace: true }) })
+
+
+    // .catch(error => {
+    //   console.log(error);
+    //   navigate("/404", { replace: true });
+    // }
+
+    // );
+
+    setPrevTema(tema);
+
   }
-  )
 
 
   function generateContents() {
