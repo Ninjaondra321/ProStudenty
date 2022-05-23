@@ -6,6 +6,8 @@ import SideBarObsah from "../Components/SideBar";
 const PredmetTemplate = () => {
   let { predmet, tema } = useParams();
 
+  console.log(predmet, "AUDUGIALUSGDUIAGLSIASIKUGLDIUGWUIGUJZHASGDLJFG")
+
   console.log(predmet)
 
   const [posledniTema, setPosledniTema] = useState(null);
@@ -21,7 +23,7 @@ const PredmetTemplate = () => {
     fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
       .then(response => response.json())
       .then(text => setPredmetInfo(text))
-      .then(() => console.log(predmetInfo))
+      .then(() => console.error(predmetInfo))
       .catch(error => console.log(error));
   }, [])
 
@@ -42,7 +44,7 @@ const PredmetTemplate = () => {
     <div>
 
 
-      <div className="tm-sidebar-left uk-visible@m">
+      <div className="tm-sidebar-left uk-visible@l">
 
         <Link className="uk-link-muted" to={"/" + predmet}>
           <h3>

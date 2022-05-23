@@ -77,6 +77,20 @@
 
 }
 
+.moje-carousel {
+    height: 320px !important;
+    display: inline-flex !important;
+    overflow-x: scroll;
+    width: 100%;
+    margin-bottom: 40px;
+
+}
+
+.moje-carousel .item {
+    width: 400px !important;
+    padding: 20px;
+}
+
 
 
 ::-webkit-scrollbar {
