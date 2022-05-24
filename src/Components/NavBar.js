@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-const NavBar = () => {
+const NavBar = ({ theme, setTheme }) => {
 
     return (
         <div>
@@ -52,16 +52,23 @@ const NavBar = () => {
                     </div> */}
 
                     <ul className="uk-navbar-nav uk-visible@s">
-                        <li className="uk-parent"><Link to="/settings"><span uk-icon="cog"></span></Link></li>
-                        <li><a href=""></a></li>
+                        <li className="uk-parent ">
+                            {theme === "light" && <p style={{ cursor: "pointer" }} onClick={() => setTheme("dark")}>Teď je light</p>}
+                            {theme === "dark" && <p style={{ cursor: "pointer" }} onClick={() => setTheme("light")}>Teď je dark</p>}
+                        </li>
+                        <li className="uk-parent"><Link to="/settings">
+                            <span uk-icon="cog"></span>
+
+
+
+
+                        </Link></li>
                     </ul>
 
                 </div>
 
                 <div className="nav-overlay uk-navbar-right uk-hidden@s">
-                    {/* 
-                    <a className="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade"
-                        href="#"></a> */}
+
 
                     <ul className="uk-navbar-nav ">
                         <li className="uk-parent"><a href="#offcanvas-slide" className="" uk-toggle><span uk-icon="menu"></span></a>

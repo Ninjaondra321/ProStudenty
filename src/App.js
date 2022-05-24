@@ -16,13 +16,94 @@ import PredmetTemplate from "./Pages/PredmetTemplate";
 
 import "./Style/ui-kit-z-webu.css";
 import "./Style/style.css";
+import { useEffect, useState } from "react";
+
+
+import React from "react";
+
 
 
 function App() {
+
+  const [theme, setTheme] = useState(null);
+  const [previousTheme, setPreviousTheme] = useState(null);
+
+
+
+  if (theme !== previousTheme || theme === null) {
+    if (theme === null) {
+      if (localStorage.getItem("ProStudenty-THEME")) {
+        setTheme(localStorage.getItem("ProStudenty-THEME"));
+        setPreviousTheme(localStorage.getItem("ProStudenty-THEME"));
+      } else {
+        setTheme("light");
+        setPreviousTheme("light");
+        localStorage.setItem("ProStudenty-THEME", "light");
+      }
+
+    } else {
+      setPreviousTheme(theme);
+      localStorage.setItem("ProStudenty-THEME", theme)
+
+    }
+  }
+
+
+
+  // if (theme !== previousTheme || theme === null) {
+  //   console.log(theme, previousTheme)
+  //   if (theme === null && localStorage.getItem("ProStudenty-THEME")) {
+  //     try {
+  //       setTheme(localStorage.getItem("ProStudenty-THEME"));
+  //       setPreviousTheme(localStorage.getItem("ProStudenty-THEME"));
+
+  //     } catch (error) {
+  //       localStorage.setItem("ProStudenty-THEME", "light");
+  //       setTheme("light");
+  //       setPreviousTheme("light");
+
+
+  //     }
+
+
+
+
+  //   } else {
+  //     setPreviousTheme(theme);
+  //     localStorage.setItem("ProStudenty-THEME", theme)
+  //   }
+
+  // }
+
+  applyTheme()
+
+
+  function applyTheme() {
+    setTimeout(() => {
+
+
+      if (theme === "dark") {
+        document.documentElement.style.setProperty('--text-color', '#eee');
+        document.documentElement.style.setProperty('--text-secondary-color', '#bbb');
+        document.documentElement.style.setProperty('--background-color', '#111');
+        document.documentElement.style.setProperty('--shadow-color-01', 'rgba(255, 255, 255, 4%)');
+        document.documentElement.style.setProperty('--shadow-color-02', 'rgba(255, 255, 255, 12%)');
+      } else {
+        document.documentElement.style.setProperty('--text-color', '#222');
+        document.documentElement.style.setProperty('--text-secondary-color', '#666');
+        document.documentElement.style.setProperty('--background-color', '#fff');
+        document.documentElement.style.setProperty('--shadow-color-01', 'rgba(0, 0, 0, 8%)');
+        document.documentElement.style.setProperty('--shadow-color-02', 'rgba(0, 0, 0, 16%)');
+      }
+    }, 100);
+  }
+
+
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
+        {/* <NavBar theme={theme} changeTheme={changeTheme} /> */}
+        <NavBar theme={theme} setTheme={setTheme} />
         <Routes>
           <Route path="/" element={<Homepage />} />
 

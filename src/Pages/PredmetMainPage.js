@@ -37,6 +37,22 @@ const PredmetMainPage = () => {
 
     }
 
+    // function fetchForDataMoje(url) {
+    //     if (cache[url]) {
+    //         return cache[url];
+    //     } else {
+    //         // return fetch(url)
+    //         fetch(url)
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 cache[url] = data;
+    //                 return data;
+    //             });
+    //     }
+    // }
+
+
+
 
 
 
