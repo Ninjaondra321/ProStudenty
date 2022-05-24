@@ -38,20 +38,18 @@ const NavBar = () => {
                     </ul>
                 </div>
 
-                <div className="uk-navbar-center nav-overlay">
-                </div>
 
 
                 <div className="uk-navbar-right nav-overlay uk-visible@s ">
 
-                    <div className="">
+                    {/* <div className="">
                         <a className="uk-navbar-toggle" uk-search-icon href="#"></a>
                         <div className="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
                             <form className="uk-search uk-search-navbar uk-width-1-1">
                                 <input className="uk-search-input" type="search" placeholder="Search" autofocus />
                             </form>
                         </div>
-                    </div>
+                    </div> */}
 
                     <ul className="uk-navbar-nav uk-visible@s">
                         <li className="uk-parent"><Link to="/settings"><span uk-icon="cog"></span></Link></li>
@@ -61,9 +59,9 @@ const NavBar = () => {
                 </div>
 
                 <div className="nav-overlay uk-navbar-right uk-hidden@s">
-
+                    {/* 
                     <a className="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade"
-                        href="#"></a>
+                        href="#"></a> */}
 
                     <ul className="uk-navbar-nav ">
                         <li className="uk-parent"><a href="#offcanvas-slide" className="" uk-toggle><span uk-icon="menu"></span></a>

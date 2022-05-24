@@ -5,7 +5,6 @@ import CarouselCard from "./Cards";
 
 const Carousel = ({ temata }) => {
 
-    console.warn('temata', temata)
 
 
     return (

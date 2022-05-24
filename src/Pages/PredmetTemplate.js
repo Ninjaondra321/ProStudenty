@@ -6,9 +6,7 @@ import SideBarObsah from "../Components/SideBar";
 const PredmetTemplate = () => {
   let { predmet, tema } = useParams();
 
-  console.log(predmet, "AUDUGIALUSGDUIAGLSIASIKUGLDIUGWUIGUJZHASGDLJFG")
 
-  console.log(predmet)
 
   const [posledniTema, setPosledniTema] = useState(null);
 
@@ -23,7 +21,6 @@ const PredmetTemplate = () => {
     fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
       .then(response => response.json())
       .then(text => setPredmetInfo(text))
-      .then(() => console.error(predmetInfo))
       .catch(error => console.log(error));
   }, [])
 
@@ -32,7 +29,6 @@ const PredmetTemplate = () => {
       .then(response => response.json())
       .then(response => setObsah(response))
       // .then(text => setObsah(text))
-      .then(() => console.warn(obsah))
       .catch(error => console.log(error));
   }, [])
 
@@ -51,7 +47,7 @@ const PredmetTemplate = () => {
             {predmetInfo.title}</h3>
         </Link>
 
-        {Object.keys(obsah).map((key) => <ul className="uk-nav uk-nav-default tm-nav"><li className="uk-nav-header">{obsah[key].title} {console.log(obsah[key].title)} </li> <ul> {obsah[key].contents.map((obj) => <li> <Link to={"/" + predmet + obj.link}>{obj.title}</Link></li>)} </ul></ul>)
+        {Object.keys(obsah).map((key) => <ul className="uk-nav uk-nav-default tm-nav"><li className="uk-nav-header">{obsah[key].title}  </li> <ul> {obsah[key].contents.map((obj) => <li> <Link to={"/" + predmet + obj.link}>{obj.title}</Link></li>)} </ul></ul>)
         }
       </div>
 

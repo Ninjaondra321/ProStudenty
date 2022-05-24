@@ -1,10 +1,10 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CarouselCard from "../Components/Cards";
 import Carousel from "../Components/Carousel";
 
-
+import Vybery from "../Components/Vybery";
 
 
 const PredmetMainPage = () => {
@@ -13,7 +13,30 @@ const PredmetMainPage = () => {
     const [predmetInfo, setPredmetInfo] = useState('Loading...');
     const [vybery, setVybery] = useState(null);
 
-    console.log(predmet, "AUDUGIALUSGDUIAGLSIASIKUGLDIUGWUIGUJZHASGDLJFGDFSLHFISDKKLFDGG")
+    const [search, setSearch] = useState('');
+
+    const [obsah, setObsah] = useState(null);
+
+    const [vysledkyVyhledavani, setVysledkyVyhledavani] = useState([]);
+
+    function findLessons() {
+        // setVysledkyVyhledavani([])
+        let prubezneVysledkyVyheldavani = []
+        for (var key of Object.keys(obsah)) {
+
+            if (obsah[key].key_words.includes(search.toLocaleLowerCase())) {
+
+                prubezneVysledkyVyheldavani.push(obsah[key]);
+
+            }
+
+        }
+
+        setVysledkyVyhledavani(prubezneVysledkyVyheldavani)
+
+
+    }
+
 
 
 
@@ -21,7 +44,6 @@ const PredmetMainPage = () => {
         fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
             .then(response => response.json())
             .then(text => setPredmetInfo(text))
-            .then(() => console.log(predmetInfo, "PREDMET INFO"))
             .catch(error => console.log(error));
     }, [])
 
@@ -29,13 +51,23 @@ const PredmetMainPage = () => {
         fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/vybery.json")
             .then(response => response.json())
             .then(text => setVybery(text))
-            .then(() => console.error(vybery, "VYBERY"))
             .catch(error => console.log(error));
     }, [])
 
+    useEffect(() => {
+        fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/temata.json")
+            .then(response => response.json())
+            .then(text => setObsah(text))
+            .catch(error => console.log(error));
+    }, [])
 
-    console.log(predmetInfo, "PredmetInfo")
-    console.log(vybery, "Vybery")
+    function upravLink(l) {
+        if (l[0] === "/") {
+            return l.substring(1)
+        }
+        return l
+    }
+
 
 
 
@@ -50,18 +82,48 @@ const PredmetMainPage = () => {
 
                 <div class="uk-search uk-search-large">
                     <span uk-search-icon></span>
-                    <input class="uk-search-input" type="search" placeholder="Vyhledat téma" />
+                    <input class="uk-search-input" type="search" placeholder="Vyhledat téma" value={search} onChange={(e) => { setSearch(e.target.value); console.log(search); findLessons() }} />
                 </div>
 
+                <div className={search !== "" && "uk-animation-fade uk-animation-reverse uk-hidden"} >
+                    <Vybery vybery={vybery} />
+                </div>
+
+                {search &&
+                    <div className="" style={{ padding: "20px" }}>
+
+
+
+
+
+
+                        {vysledkyVyhledavani.map((tema) =>
+                            <Link to={upravLink(tema.url)} >
+                                <div className="uk-card uk-card-default uk-link-reset">
+                                    <div className="uk-card-body uk-link-reset">
+
+                                        <h3 className="uk-card-title uk-link-reset">{tema.title}</h3>
+                                        <p className="uk-link-reset">{tema.ukazka}</p>
+                                    </div>
+                                </div>
+                            </Link>
+
+
+                        )}
+
+                    </div>
+                }
+
+                {/* 
                 {vybery && Object.keys(vybery).map((key) => <div className="vyber">
                     <h2>{vybery[key].title}</h2>
-                    <Carousel temata={vybery[key].temata} />
-
-                </div>
-                )}
+                    <Carousel temata={vybery[key].temata} /> 
 
             </div>
-        </div>
+                )}*/}
+
+            </div>
+        </div >
 
         // <div class="tm-main  uk-section-default">
         //     <div class="uk-container uk-container-medium uk-position-relative moje-main-content-padding-left">

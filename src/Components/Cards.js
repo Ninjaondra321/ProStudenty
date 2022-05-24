@@ -22,7 +22,6 @@ const CarouselCard = ({ title, icon, link }) => {
 
 
 
-    console.warn([title, icon, link])
 
     return (
         <div className="item">
@@ -44,8 +43,5 @@ CarouselCard.defaultProps = {
     icon: "ptak",
     link: "/"
 }
-
-
-
 
 export default CarouselCard;

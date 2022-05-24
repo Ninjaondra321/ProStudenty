@@ -16,7 +16,6 @@ const Tema = () => {
 
   let navigate = useNavigate();
 
-  console.log('Teeemaa')
 
   if (prevTema !== tema) {
     fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/" + tema + ".md")
@@ -48,7 +47,6 @@ const Tema = () => {
       }
     }
     setListOfIds(listOfIds);
-    console.info(listOfIds);
 
   }
 
