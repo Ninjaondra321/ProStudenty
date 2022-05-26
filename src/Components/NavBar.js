@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
 const NavBar = ({ theme, setTheme }) => {
+
+    const [dropdownIsShown, setDropdownIsShown] = useState(false);
+
 
     return (
         <div>
@@ -14,26 +17,52 @@ const NavBar = ({ theme, setTheme }) => {
                     <ul className="uk-navbar-nav">
                         <Link to="/" className="uk-navbar-item uk-logo">ProStudenty</Link>
                         <li className="uk-visible@s">
-                            <a href="#" className="uk-button-text">Předměty</a>
-                            <div className="uk-navbar-dropdown">
-                                <ul className="uk-nav uk-navbar-dropdown-nav">
-                                    <li className="uk-nav-header">Přírodovědné</li>
-                                    <li><a href="#">Dějepis</a></li>
-                                    <li><a href="#">Biologie</a></li>
-                                    <li className="uk-nav-divider"></li>
+                            {
+                                dropdownIsShown &&
+                                <div className="uk-navbar-dropdown" style={{ position: "absolute", top: "80px", display: "unset", backgroundColor: "var(--background-color) " }}>
+                                    <ul className="uk-nav uk-navbar-dropdown-nav">
+                                        <li className="uk-nav-header">Přírodovědné</li>
+                                        <li><Link to="/dejepis">Dějepis</Link></li>
+                                        <li><Link to="/biologie">Biologie</Link></li>
+                                        <li className="uk-nav-divider"></li>
 
-                                    <li className="uk-nav-header">Jazyky</li>
-                                    <li><a href="#">Čeština</a></li>
-                                    <li><a href="#">Angličtina</a></li>
-                                    <li className="uk-nav-divider"></li>
+                                        <li className="uk-nav-header">Jazyky</li>
+                                        <li><Link to="/cesky-jazyk">Čeština</Link></li>
+                                        <li className="uk-nav-divider"></li>
 
-                                    <li className="uk-nav-header">Technické</li>
-                                    <li><a href="#">Matematika</a></li>
-                                    <li><a href="#">Informatika</a></li>
-                                </ul>
-                            </div>
+                                        <li className="uk-nav-header">Technické</li>
+                                        <li><Link to="/matematika">Matematika</Link></li>
+                                        <li><Link to="/informatika">Informatika</Link></li>
+                                        <li className="uk-nav-divider"></li>
+
+                                        <li className="uk-nav-header">Ostatní</li>
+                                        <li><Link to="/spolecenske-vedy">Společenské vědy</Link></li>
+
+                                    </ul>
+                                </div>
+
+                            }
+
+
                         </li>
-                        <li className="uk-visible@s"><Link to="/about" className="uk-button-text">O projektu</Link> </li>
+
+
+                        <li>
+                            <li className="uk-visible@s">
+                                <div >
+                                    <ul className="uk-navbar-nav">
+                                        <li>
+
+                                            <a className="uk-button-text">Předměty</a>
+                                            <input style={{ position: "absolute", top: "0px", height: "77px", width: "100px", opacity: "0%", cursor: "pointer" }} onFocus={() => setDropdownIsShown(true)} onBlur={() => setTimeout(() => setDropdownIsShown(false), 100)} />
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                        </li>
+                        <li className="uk-visible@s"><Link to="/about" className="" style={{ textDecoration: "none", border: "none" }} >O projektu</Link> </li>
+
 
                     </ul>
                 </div>
@@ -94,11 +123,9 @@ const NavBar = ({ theme, setTheme }) => {
                 </div>
 
 
-            </nav>
-            <div className="uk-padding-small"></div>
-            <div className="uk-padding-small"></div>
-            <div className="uk-padding-small"></div>
-        </div>
+            </nav >
+
+        </div >
 
     )
 

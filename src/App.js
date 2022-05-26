@@ -50,52 +50,28 @@ function App() {
 
 
 
-  // if (theme !== previousTheme || theme === null) {
-  //   console.log(theme, previousTheme)
-  //   if (theme === null && localStorage.getItem("ProStudenty-THEME")) {
-  //     try {
-  //       setTheme(localStorage.getItem("ProStudenty-THEME"));
-  //       setPreviousTheme(localStorage.getItem("ProStudenty-THEME"));
-
-  //     } catch (error) {
-  //       localStorage.setItem("ProStudenty-THEME", "light");
-  //       setTheme("light");
-  //       setPreviousTheme("light");
-
-
-  //     }
-
-
-
-
-  //   } else {
-  //     setPreviousTheme(theme);
-  //     localStorage.setItem("ProStudenty-THEME", theme)
-  //   }
-
-  // }
 
   applyTheme()
 
 
   function applyTheme() {
-    setTimeout(() => {
+    // setTimeout(() => {
 
 
-      if (theme === "dark") {
-        document.documentElement.style.setProperty('--text-color', '#eee');
-        document.documentElement.style.setProperty('--text-secondary-color', '#bbb');
-        document.documentElement.style.setProperty('--background-color', '#111');
-        document.documentElement.style.setProperty('--shadow-color-01', 'rgba(255, 255, 255, 4%)');
-        document.documentElement.style.setProperty('--shadow-color-02', 'rgba(255, 255, 255, 12%)');
-      } else {
-        document.documentElement.style.setProperty('--text-color', '#222');
-        document.documentElement.style.setProperty('--text-secondary-color', '#666');
-        document.documentElement.style.setProperty('--background-color', '#fff');
-        document.documentElement.style.setProperty('--shadow-color-01', 'rgba(0, 0, 0, 8%)');
-        document.documentElement.style.setProperty('--shadow-color-02', 'rgba(0, 0, 0, 16%)');
-      }
-    }, 100);
+    if (theme === "dark") {
+      document.documentElement.style.setProperty('--text-color', '#eee');
+      document.documentElement.style.setProperty('--text-secondary-color', '#bbb');
+      document.documentElement.style.setProperty('--background-color', '#111');
+      document.documentElement.style.setProperty('--shadow-color-01', 'rgba(255, 255, 255, 4%)');
+      document.documentElement.style.setProperty('--shadow-color-02', 'rgba(255, 255, 255, 12%)');
+    } else {
+      document.documentElement.style.setProperty('--text-color', '#222');
+      document.documentElement.style.setProperty('--text-secondary-color', '#666');
+      document.documentElement.style.setProperty('--background-color', '#fff');
+      document.documentElement.style.setProperty('--shadow-color-01', 'rgba(0, 0, 0, 8%)');
+      document.documentElement.style.setProperty('--shadow-color-02', 'rgba(0, 0, 0, 16%)');
+    }
+    // }, 100);
   }
 
 
@@ -103,7 +79,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         {/* <NavBar theme={theme} changeTheme={changeTheme} /> */}
-        <NavBar theme={theme} setTheme={setTheme} />
+        <div className="uk-padding-small"></div>
+        <div className="uk-padding-small"></div>
+        <div className="uk-padding-small"></div>
         <Routes>
           <Route path="/" element={<Homepage />} />
 
@@ -117,6 +95,7 @@ function App() {
           </Route>
 
         </Routes>
+        <NavBar theme={theme} setTheme={setTheme} />
       </BrowserRouter>
 
     </div>

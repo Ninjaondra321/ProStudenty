@@ -52,15 +52,36 @@ const PredmetMainPage = () => {
     // }
 
 
+    let navigate = useNavigate();
 
 
 
+    const [posledniPredmet, setPosledniPredmet] = useState(null);
+
+    if (posledniPredmet !== predmet) {
+        setPosledniPredmet(predmet)
+        fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
+            .then(response => response.json())
+            .then(text => setPredmetInfo(text))
+            .catch(error => { navigate("/404", { replace: true }) })
+
+        fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/vybery.json")
+            .then(response => response.json())
+            .then(text => setVybery(text))
+            .catch(error => console.log(error));
+
+        fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/temata.json")
+            .then(response => response.json())
+            .then(text => setObsah(text))
+            .catch(error => console.log(error));
+
+    }
 
     useEffect(() => {
         fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
             .then(response => response.json())
             .then(text => setPredmetInfo(text))
-            .catch(error => console.log(error));
+            .catch(error => { navigate("/404", { replace: true }) })
     }, [])
 
     useEffect(() => {

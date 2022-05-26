@@ -5,32 +5,51 @@ import SideBarObsah from "../Components/SideBar";
 
 const PredmetTemplate = () => {
   let { predmet, tema } = useParams();
+  const [prevPredmet, setPrevPredmet] = useState('');
+  const [predmetInfo, setPredmetInfo] = useState('Loading...');
+  const [obsah, setObsah] = useState('');
+
+
+  if (prevPredmet !== predmet) {
+    setPrevPredmet(predmet)
+  }
 
 
 
   const [posledniTema, setPosledniTema] = useState(null);
 
-  if (posledniTema !== tema) {
-    setPosledniTema(tema);
-  }
+  if (posledniTema !== predmet) {
 
-  const [predmetInfo, setPredmetInfo] = useState('Loading...');
-  const [obsah, setObsah] = useState('');
-
-  useEffect(() => {
     fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
       .then(response => response.json())
       .then(text => setPredmetInfo(text))
       .catch(error => console.log(error));
-  }, [])
 
-  useEffect(() => {
     fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/obsah.json")
       .then(response => response.json())
       .then(response => setObsah(response))
       // .then(text => setObsah(text))
       .catch(error => console.log(error));
-  }, [])
+    setPosledniTema(predmet)
+
+  }
+
+
+
+  // useEffect(() => {
+  //   fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
+  //     .then(response => response.json())
+  //     .then(text => setPredmetInfo(text))
+  //     .catch(error => console.log(error));
+  // }, [])
+
+  // useEffect(() => {
+  //   fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/obsah.json")
+  //     .then(response => response.json())
+  //     .then(response => setObsah(response))
+  //     // .then(text => setObsah(text))
+  //     .catch(error => console.log(error));
+  // }, [])
 
 
 

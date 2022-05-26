@@ -3,9 +3,21 @@ import { useNavigate, Link } from "react-router-dom";
 
 const Homepage = () => {
 
-  // For githubcopilot: can you please write the multilevel string sign??
-  // Multi level string
   const x = "<script> console.log('aspon-funguju') function change_switcher_next() { UIkit.switcher(document.getElementById('muj-testovy - switcher')).show('next') }  function run_switcher_next() { setTimeout(() => { change_switcher_next(); run_switcher_next() }, 2500) } run_switcher_next() </script> "
+
+  function generateRandomColor() {
+    let color = "#"
+    for (let i = 0; i < 6; i++) {
+      color += ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "a", "b", "c", "d", "e", "f"][Math.floor(Math.random() * 16)]
+    }
+    return color
+  }
+
+
+
+
+  document.documentElement.style.setProperty('--main-color', generateRandomColor());
+  document.documentElement.style.setProperty('--secondary-color', generateRandomColor());
 
 
   return (
@@ -93,10 +105,11 @@ const Homepage = () => {
       <div className="uk-padding-small"></div>
       <div className="uk-padding-small"></div>
 
+      <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit-icons.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit.min.js"></script>
       <div dangerouslySetInnerHTML={{ __html: x }}>
 
       </div>
-
 
     </div >
 
