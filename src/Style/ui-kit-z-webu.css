@@ -3077,9 +3077,19 @@ select.uk-form-width-xsmall {
     box-sizing: border-box;
     width: 270px;
     padding: 20px 20px;
-    background: var(--text-background-color);
+    background: var(--background-color);
+
+    color: var(--text-color) !important;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch
+}
+
+.uk-nav-divider {
+    border-top-color: rgba(117, 117, 117, 0.473) !important
+}
+
+.uk-offcanvas-bar * {
+    color: var(--text-color) !important;
 }
 
 @media (min-width:960px) {

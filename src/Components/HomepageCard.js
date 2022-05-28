@@ -24,15 +24,15 @@ const CarouselCard = ({ title, icon, link }) => {
 
 
     return (
-        <div className="item">
-            <Link className="uk-card uk-card-default uk-card-hover uk-card-body  uk-visible-toggle item " to={link} tabIndex={0} style={{ height: '250px' }}>
-                <img uk-svg="stroke-animation: false" src={iconURL} style={{ height: '190px', width: '100%', opacity: '0.5', position: 'absolute', top: 0, left: 0, paddingTop: '30px', filter: 'blur(20px)' }} className="uk-flex uk-flex-center uk-link-reset uk-preserve  " />
+        <div className="uk-grid-margin">
+            <a className="uk-card uk-card-default uk-card-hover uk-card-body  uk-visible-toggle " href="/home.html" tabIndex={0} style={{ height: '250px' }}>
+                <img uk-svg="stroke-animation: false" src="/imgs/ptak_pak_vymaz.svg" style={{ height: '190px', width: '100%', opacity: '0.5', position: 'absolute', top: 0, left: 0, paddingTop: '30px', filter: 'blur(20px)' }} className="uk-flex uk-flex-center uk-link-reset uk-preserve  " />
                 <div className="uk-animation-toggle uk-invisible-hover" style={{ height: '220px', marginTop: '-30px', paddingTop: '30px' }} tabIndex={0}>
-                    <img uk-svg="stroke-animation: true" src={iconURL} style={{ height: '190px', width: '100%', opacity: 1, position: 'absolute', top: 0, left: 0, paddingTop: '30px' }} className="uk-flex uk-flex-center uk-link-reset  uk-animation-stroke  uk-preserve" />
+                    <img uk-svg="stroke-animation: true" src="/imgs/ptak_pak_vymaz.svg" style={{ height: '190px', width: '100%', opacity: 1, position: 'absolute', top: 0, left: 0, paddingTop: '30px' }} className="uk-flex uk-flex-center uk-link-reset  uk-animation-stroke  uk-preserve" />
                 </div>
                 <h3 className="uk-card-title uk-link-reset" style={{ position: 'absolute', bottom: '30px', left: '60px' }}>
-                    {title}</h3>
-            </Link>
+                    Biologie</h3>
+            </a>
         </div>
 
     );

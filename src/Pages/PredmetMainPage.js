@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import CarouselCard from "../Components/Cards";
+import CarouselCard from "../Components/CarouselCard";
 import Carousel from "../Components/Carousel";
 
 import Vybery from "../Components/Vybery";
@@ -58,7 +58,7 @@ const PredmetMainPage = () => {
 
     const [posledniPredmet, setPosledniPredmet] = useState(null);
 
-    if (posledniPredmet !== predmet) {
+    useEffect(() => {
         setPosledniPredmet(predmet)
         fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
             .then(response => response.json())
@@ -75,28 +75,28 @@ const PredmetMainPage = () => {
             .then(text => setObsah(text))
             .catch(error => console.log(error));
 
-    }
+    }, [predmet]);
 
-    useEffect(() => {
-        fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
-            .then(response => response.json())
-            .then(text => setPredmetInfo(text))
-            .catch(error => { navigate("/404", { replace: true }) })
-    }, [])
+    // useEffect(() => {
+    //     fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
+    //         .then(response => response.json())
+    //         .then(text => setPredmetInfo(text))
+    //         .catch(error => { navigate("/404", { replace: true }) })
+    // }, [])
 
-    useEffect(() => {
-        fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/vybery.json")
-            .then(response => response.json())
-            .then(text => setVybery(text))
-            .catch(error => console.log(error));
-    }, [])
+    // useEffect(() => {
+    //     fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/vybery.json")
+    //         .then(response => response.json())
+    //         .then(text => setVybery(text))
+    //         .catch(error => console.log(error));
+    // }, [])
 
-    useEffect(() => {
-        fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/temata.json")
-            .then(response => response.json())
-            .then(text => setObsah(text))
-            .catch(error => console.log(error));
-    }, [])
+    // useEffect(() => {
+    //     fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/temata.json")
+    //         .then(response => response.json())
+    //         .then(text => setObsah(text))
+    //         .catch(error => console.log(error));
+    // }, [])
 
     function upravLink(l) {
         if (l[0] === "/") {

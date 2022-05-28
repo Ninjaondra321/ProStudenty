@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import CarouselCard from "./Cards";
+import CarouselCard from "./CarouselCard";
 
 const Carousel = ({ temata }) => {
 

@@ -6,6 +6,7 @@ const NavBar = ({ theme, setTheme }) => {
 
     const [dropdownIsShown, setDropdownIsShown] = useState(false);
 
+    const [sidebarIsShown, setSidebarIsShown] = useState(false);
 
     return (
         <div>
@@ -86,7 +87,7 @@ const NavBar = ({ theme, setTheme }) => {
                             {theme === "dark" && <p style={{ cursor: "pointer" }} onClick={() => setTheme("light")}>Teď je dark</p>}
                         </li>
                         <li className="uk-parent"><Link to="/settings">
-                            <span uk-icon="cog"></span>
+                            <span uk-icon="cog" ></span>
 
 
 
@@ -100,7 +101,7 @@ const NavBar = ({ theme, setTheme }) => {
 
 
                     <ul className="uk-navbar-nav ">
-                        <li className="uk-parent"><a href="#offcanvas-slide" className="" uk-toggle><span uk-icon="menu"></span></a>
+                        <li className="uk-parent"><a onClick={() => setSidebarIsShown(true)}><span uk-icon="menu"></span></a>
                         </li>
                     </ul>
 
@@ -125,6 +126,75 @@ const NavBar = ({ theme, setTheme }) => {
 
             </nav >
 
+            {/* <div id="offcanvas-slide" uk-offcanvas="overlay: true" className="uk-offcanvas uk-offcanvas-overlay uk-open">
+                <div class="uk-offcanvas-bar">
+                    <h3>ProStudenty</h3>
+
+
+                    <ul class="uk-nav uk-nav-default">
+
+                        <li class="uk-nav-header">Předměty</li>
+                        <li><a href="#">Dějepis</a></li>
+                        <li><a href="#">Biologie</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li><a href="#">Čeština</a></li>
+                        <li><a href="#">Ruština</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li><a href="#">Matematika</a></li>
+                        <li><a href="#">Informatika</a></li>
+
+                        <li class="uk-nav-header">O projektu</li>
+
+
+                    </ul>
+
+                    <div uk-sticky="position: bottom " class="uk-padding-small">
+                        <a href="/"><span uk-icon="cog"></span></a>
+                    </div>
+                </div>
+
+
+            </div> */}
+            {sidebarIsShown &&
+
+                <div id="offcanvas-slide" uk-offcanvas="overlay: true" class="uk-offcanvas uk-offcanvas-overlay uk-open " tabindex="-1" style={{ display: "block" }}>
+                    <button style={{ position: "absolute", opacity: "0%", height: "100vh", width: "100vw", right: "0", top: "0", bottom: "0" }} onClick={() => setSidebarIsShown(false)}>
+
+                    </button>
+
+
+                    <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide uk-animation-slide-left"   >
+                        <h3>ProStudenty</h3>
+
+
+                        <ul class=" uk-nav uk-nav-default">
+
+                            <li class="uk-nav-header">Předměty</li>
+                            <li><Link to="/dejepis">Dějepis</Link></li>
+                            <li><Link to="/biologie">Biologie</Link></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><Link to="/cestina">Čeština</Link></li>
+                            {/* <li><Link to="#">Ruština</Link></li> */}
+                            <li class="uk-nav-divider"></li>
+                            <li><Link to="/matematika">Matematika</Link></li>
+                            <li><Link to="/informatika">Informatika</Link></li>
+
+                            <li class="uk-nav-header">O projektu</li>
+
+
+                        </ul>
+
+                        <div uk-sticky="position: bottom " class="uk-padding-small uk-sticky uk-active uk-sticky-fixed" style={{ position: "fixed", top: "805.359px", width: "230px" }}>
+                        </div><div class="uk-sticky-placeholder" style={{ height: "52.6406px", margin: "0px" }}></div>
+                    </div>
+                    <div uk-sticky="position: bottom " class="uk-padding-small">
+                        <Link to="/settings"><span uk-icon="cog"></span></Link>
+                        {theme === "light" && <p style={{ cursor: "pointer" }} onClick={() => setTheme("dark")}>Teď je light</p>}
+                        {theme === "dark" && <p style={{ cursor: "pointer" }} onClick={() => setTheme("light")}>Teď je dark</p>}
+                    </div>
+
+                </div>
+            }
         </div >
 
     )
