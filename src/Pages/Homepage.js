@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
+import HomepageCard from "../Components/HomepageCard";
 
 const Homepage = () => {
 
@@ -49,67 +50,23 @@ const Homepage = () => {
       </div>
       <div className="uk-padding-small" />
       <div className="uk-child-width-1-2@s uk-grid uk-child-width-1-3@l uk-grid-match moje-vyber-predmetu" uk-grid uk-scrollspy="cls: uk-animation-scale-up uk-transform-origin-bottom-center; target: .uk-card; delay: 250; repeat: false">
-        <div className="uk-grid-margin">
-          <a className="uk-card uk-card-default uk-card-hover uk-card-body  uk-visible-toggle " href="/home.html" tabIndex={0} style={{ height: '250px' }}>
-            <img uk-svg="stroke-animation: false" src="/imgs/ptak_pak_vymaz.svg" style={{ height: '190px', width: '100%', opacity: '0.5', position: 'absolute', top: 0, left: 0, paddingTop: '30px', filter: 'blur(20px)' }} className="uk-flex uk-flex-center uk-link-reset uk-preserve  " />
-            <div className="uk-animation-toggle uk-invisible-hover" style={{ height: '220px', marginTop: '-30px', paddingTop: '30px' }} tabIndex={0}>
-              <img uk-svg="stroke-animation: true" src="/imgs/ptak_pak_vymaz.svg" style={{ height: '190px', width: '100%', opacity: 1, position: 'absolute', top: 0, left: 0, paddingTop: '30px' }} className="uk-flex uk-flex-center uk-link-reset  uk-animation-stroke  uk-preserve" />
-            </div>
-            <h3 className="uk-card-title uk-link-reset" style={{ position: 'absolute', bottom: '30px', left: '60px' }}>
-              Biologie</h3>
-          </a>
-        </div>
-        <div className="uk-grid-margin">
-          <a className="uk-card uk-card-default uk-card-hover uk-card-body  uk-visible-toggle " href="/home.html" tabIndex={0} style={{ height: '250px' }}>
-            <img uk-svg="stroke-animation: false" src="/imgs/leaf03.svg" style={{ height: '190px', width: '100%', opacity: '0.5', position: 'absolute', top: 0, left: 0, paddingTop: '30px', filter: 'blur(20px)' }} className="uk-flex uk-flex-center uk-link-reset uk-preserve  " />
-            <div className="uk-animation-toggle uk-invisible-hover" style={{ height: '220px', marginTop: '-30px', paddingTop: '30px' }} tabIndex={0}>
-              <img uk-svg="stroke-animation: true" src="/imgs/leaf03.svg" style={{ height: '190px', width: '100%', opacity: 1, position: 'absolute', top: 0, left: 0, paddingTop: '30px' }} className="uk-flex uk-flex-center uk-link-reset  uk-animation-stroke  uk-preserve" />
-            </div>
-            <h3 className="uk-card-title uk-link-reset" style={{ position: 'absolute', bottom: '30px', left: '60px' }}>
-              Biologie</h3>
-          </a>
-        </div>
-        <div className="uk-grid-margin">
-          <a className="uk-card uk-card-default uk-card-hover uk-card-body  uk-visible-toggle " href="/home.html" tabIndex={0} style={{ height: '250px' }}>
-            <img uk-svg="stroke-animation: false" src="/imgs/ptak_pak_vymaz.svg" style={{ height: '190px', width: '100%', opacity: '0.5', position: 'absolute', top: 0, left: 0, paddingTop: '30px', filter: 'blur(20px)' }} className="uk-flex uk-flex-center uk-link-reset uk-preserve  " />
-            <div className="uk-animation-toggle uk-invisible-hover" style={{ height: '220px', marginTop: '-30px', paddingTop: '30px' }} tabIndex={0}>
-              <img uk-svg="stroke-animation: true" src="/imgs/ptak_pak_vymaz.svg" style={{ height: '190px', width: '100%', opacity: 1, position: 'absolute', top: 0, left: 0, paddingTop: '30px' }} className="uk-flex uk-flex-center uk-link-reset  uk-animation-stroke  uk-preserve" />
-            </div>
-            <h3 className="uk-card-title uk-link-reset" style={{ position: 'absolute', bottom: '30px', left: '60px' }}>
-              Biologie</h3>
-          </a>
-        </div>
-        <div className="uk-grid-margin">
-          <a className="uk-card uk-card-default uk-card-hover uk-card-body  uk-visible-toggle " href="/home.html" tabIndex={0} style={{ height: '250px' }}>
-            <img uk-svg="stroke-animation: false" src="/imgs/leaf01v2.svg" style={{ height: '190px', width: '100%', opacity: '0.5', position: 'absolute', top: 0, left: 0, paddingTop: '30px', filter: 'blur(20px)' }} className="uk-flex uk-flex-center uk-link-reset uk-preserve  " />
-            <div className="uk-animation-toggle uk-invisible-hover" style={{ height: '220px', marginTop: '-30px', paddingTop: '30px' }} tabIndex={0}>
-              <img uk-svg="stroke-animation: true" src="/imgs/leaf01v2.svg" style={{ height: '190px', width: '100%', opacity: 1, position: 'absolute', top: 0, left: 0, paddingTop: '30px' }} className="uk-flex uk-flex-center uk-link-reset  uk-animation-stroke  uk-preserve" />
-            </div>
-            <h3 className="uk-card-title uk-link-reset" style={{ position: 'absolute', bottom: '30px', left: '60px' }}>
-              Biologie</h3>
-          </a>
-        </div>
-        <div className="uk-grid-margin">
-          <a className="uk-card uk-card-default uk-card-hover uk-card-body  uk-visible-toggle " href="/home.html" tabIndex={0} style={{ height: '250px' }}>
-            <img uk-svg="stroke-animation: false" src="/imgs/ptak_pak_vymaz.svg" style={{ height: '190px', width: '100%', opacity: '0.5', position: 'absolute', top: 0, left: 0, paddingTop: '30px', filter: 'blur(20px)' }} className="uk-flex uk-flex-center uk-link-reset uk-preserve  " />
-            <div className="uk-animation-toggle uk-invisible-hover" style={{ height: '220px', marginTop: '-30px', paddingTop: '30px' }} tabIndex={0}>
-              <img uk-svg="stroke-animation: true" src="/imgs/ptak_pak_vymaz.svg" style={{ height: '190px', width: '100%', opacity: 1, position: 'absolute', top: 0, left: 0, paddingTop: '30px' }} className="uk-flex uk-flex-center uk-link-reset  uk-animation-stroke  uk-preserve" />
-            </div>
-            <h3 className="uk-card-title uk-link-reset" style={{ position: 'absolute', bottom: '30px', left: '60px' }}>
-              Biologie</h3>
-          </a>
-        </div>
+
+
+        <HomepageCard title="Dějepis" icon="bird" link="/dejepis" />
+        <HomepageCard title="Biologie" icon="list" link="/biologie" />
+        <HomepageCard title="Společenské vědy" icon="bird" link="/spolecenske-vedy" />
+        <HomepageCard title="Dějepis" icon="bird" link="/dejepis" />
+
+
+
+
       </div>
 
 
       <div className="uk-padding-small"></div>
       <div className="uk-padding-small"></div>
 
-      <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit-icons.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit.min.js"></script>
-      <div dangerouslySetInnerHTML={{ __html: x }}>
 
-      </div>
 
     </div >
 

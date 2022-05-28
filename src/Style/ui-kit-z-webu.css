@@ -61,7 +61,8 @@ a:hover {
 
 abbr[title] {
     text-decoration: underline dotted;
-    -webkit-text-decoration-style: dotted
+    -webkit-text-decoration-style: dotted;
+    text-decoration-style: dotted
 }
 
 b,

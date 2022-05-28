@@ -4,6 +4,8 @@ import { useParams, useNavigate, } from "react-router-dom";
 import { useState } from "react";
 import Markdown from "markdown-to-jsx";
 
+import { Link } from "react-router-dom";
+
 
 const Tema = () => {
   let { predmet, tema } = useParams();
@@ -15,6 +17,8 @@ const Tema = () => {
   const [listOfIds, setListOfIds] = useState([]);
 
   let navigate = useNavigate();
+
+  const [obsahNaMobiluIsShown, setObsahNaMobiluIsShown] = useState(false);
 
 
   if (prevTema !== tema) {
@@ -79,8 +83,39 @@ const Tema = () => {
 
 
 
+
+
       </div>
-    </div>
+      {!obsahNaMobiluIsShown && <div className="uk-hidden@l" onClick={() => setObsahNaMobiluIsShown(true)} style={{ position: "fixed", bottom: "15px", right: "15px", backgroundColor: "var(--secondary-color)", borderRadius: "50px", height: "30px", width: "30px", display: "flex", textAlign: "center", alignItems: "center" }}><span class="material-symbols-outlined" style={{ paddingLeft: "2px" }}>arrow_back_ios_new</span></div>}
+
+
+      {obsahNaMobiluIsShown &&
+        <div id="offcanvas-slide" uk-offcanvas="flip: true; overlay: true" class="uk-offcanvas uk-offcanvas-overlay uk-open " tabindex="-1" style={{ display: "block" }}>
+          <button style={{ position: "absolute", opacity: "0%", height: "100vh", width: "100vw", right: "0", top: "0", bottom: "0", left: "0" }} onClick={() => setObsahNaMobiluIsShown(false)}>
+
+          </button>
+
+
+          <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide uk-animation-slide-right" style={{ position: "absolute", left: "calc(100vw - 275px)" }}  >
+            <h3>{listOfIds[0]}</h3>
+
+            <ul uk-scrollspy-nav="closest: li; scroll: true; offset: 100 "
+              class="uk-nav uk-nav-default tm-nav uk-nav-parent-icon">
+
+              {listOfIds.map((id) => <li class=""><a href={'#' + id}>{id}</a></li>)}
+              <li class="uk-nav-divider"></li>
+            </ul>
+
+            {/* 
+            <div uk-sticky="position: bottom " class="uk-padding-small uk-sticky uk-active uk-sticky-fixed" style={{ position: "fixed", top: "805.359px", width: "230px" }}>
+            </div><div class="uk-sticky-placeholder" style={{ height: "52.6406px", margin: "0px" }}></div> */}
+          </div>
+
+
+        </div>
+
+      }
+    </div >
   );
 }
 export default Tema;

@@ -37,19 +37,7 @@ const PredmetMainPage = () => {
 
     }
 
-    // function fetchForDataMoje(url) {
-    //     if (cache[url]) {
-    //         return cache[url];
-    //     } else {
-    //         // return fetch(url)
-    //         fetch(url)
-    //             .then(response => response.json())
-    //             .then(data => {
-    //                 cache[url] = data;
-    //                 return data;
-    //             });
-    //     }
-    // }
+
 
 
     let navigate = useNavigate();
@@ -117,8 +105,14 @@ const PredmetMainPage = () => {
 
                 <div className="uk-padding-small"></div>
 
-                <div class="uk-search uk-search-large">
-                    <span uk-search-icon></span>
+
+
+
+                <div class=" uk-search-large" style={{ display: "inline-flex" }}>
+                    <div style={{ display: "flex", textAlign: "center", justifyContent: "center", height: "50%" }}>
+
+                        <span class="material-symbols-outlined">search</span>
+                    </div>
                     <input class="uk-search-input" type="search" placeholder="Vyhledat téma" value={search} onChange={(e) => { setSearch(e.target.value); console.log(search); findLessons() }} />
                 </div>
 
