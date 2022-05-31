@@ -134,29 +134,34 @@ const PredmetMainPage = ({ setGlobalInfoOPredmetu }) => {
 
                     <div className="uk-hidden@m">
                         <h1>Obsah</h1>
-                        <ul uk-accordion="multiple: true">
 
-                            {console.log(obsahHlavni)}
+                        {obsahHlavni &&
+                            <ul uk-accordion="multiple: false">
 
-                            {
-                                Object.keys(obsahHlavni).map((key) => <li>
-                                    <a class="uk-accordion-title" href="#">{obsahHlavni[key].title}</a>
-                                    <div class="uk-accordion-content">
-                                        <ul>
-                                            {obsahHlavni[key].contents.map((item) =>
-                                                <li>
-                                                    <Link to={item.link}>{item.title}</Link>
-                                                </li>
-                                            )
-                                            }
-                                        </ul>
-                                    </div>
-                                </li>
+                                {
+                                    Object.keys(obsahHlavni).map((key) => <li>
+                                        <a className="uk-accordion-title" >{obsahHlavni[key].title}</a>
+                                        <div className="uk-accordion-content">
+                                            <ul>
+                                                {obsahHlavni[key].contents.map((item) =>
+                                                    <li>
+                                                        <Link to={item.link.replace("/", "")}>{item.title}</Link>
+                                                    </li>
+                                                )
+                                                }
+                                            </ul>
+                                        </div>
+                                    </li>
 
 
-                                )}
+                                    )}
 
-                        </ul>
+
+                            </ul>
+
+
+                        }
+
 
 
 
