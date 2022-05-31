@@ -20,7 +20,7 @@ const NavBar = ({ theme, setTheme }) => {
                         <li className="uk-visible@s">
                             {
                                 dropdownIsShown &&
-                                <div className="uk-navbar-dropdown" style={{ position: "absolute", top: "80px", display: "unset", backgroundColor: "var(--background-color) " }}>
+                                <div className="uk-navbar-dropdown uk-animation-fade uk-animation-scale-up uk-transform-origin-top-left uk-animation-fast" style={{ position: "absolute", top: "80px", display: "unset", backgroundColor: "var(--background-color) " }}>
                                     <ul className="uk-nav uk-navbar-dropdown-nav">
                                         <li className="uk-nav-header">Přírodovědné</li>
                                         <li><Link to="/dejepis">Dějepis</Link></li>

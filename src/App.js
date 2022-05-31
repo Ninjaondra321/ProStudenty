@@ -29,6 +29,7 @@ function App() {
   const [theme, setTheme] = useState(null);
   const [previousTheme, setPreviousTheme] = useState(null);
   // const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+  const [infoOPredmetu, setInfoOPredmetu] = useState(null);
 
 
   if (theme !== previousTheme || theme === null) {
@@ -48,6 +49,8 @@ function App() {
 
     }
   }
+
+
 
 
   applyTheme()
@@ -86,8 +89,8 @@ function App() {
           <Route path="404" element={<Page404 />} />
           <Route path="about" element={<About />} />
           <Route path=":predmet" element={<PredmetTemplate />}>
-            <Route path="" element={<PredmetMainPage />} />
-            <Route path=":tema" element={<Tema />} />
+            <Route path="" element={<PredmetMainPage setGlobalInfoOPredmetu={setInfoOPredmetu} />} />
+            <Route path=":tema" element={<Tema infoOPredmetu={infoOPredmetu} />} />
 
           </Route>
 

@@ -7,17 +7,16 @@ import Carousel from "../Components/Carousel";
 import Vybery from "../Components/Vybery";
 
 
-const PredmetMainPage = () => {
+const PredmetMainPage = ({ setGlobalInfoOPredmetu }) => {
     let { predmet } = useParams();
 
     const [predmetInfo, setPredmetInfo] = useState('Loading...');
     const [vybery, setVybery] = useState(null);
-
     const [search, setSearch] = useState('');
-
     const [obsah, setObsah] = useState(null);
-
     const [vysledkyVyhledavani, setVysledkyVyhledavani] = useState([]);
+
+    const [obsahHlavni, setObsahHlavni] = useState(null);
 
     function findLessons() {
         // setVysledkyVyhledavani([])
@@ -40,17 +39,23 @@ const PredmetMainPage = () => {
 
 
 
+
+
     let navigate = useNavigate();
 
 
+    useEffect(() => {
+        setGlobalInfoOPredmetu(obsah)
+    }, [obsah])
 
-    const [posledniPredmet, setPosledniPredmet] = useState(null);
+
+
 
     useEffect(() => {
-        setPosledniPredmet(predmet)
+
         fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/predmet.json")
             .then(response => response.json())
-            .then(text => setPredmetInfo(text))
+            .then(text => { setPredmetInfo(text) })
             .catch(error => { navigate("/404", { replace: true }) })
 
         fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/vybery.json")
@@ -62,6 +67,13 @@ const PredmetMainPage = () => {
             .then(response => response.json())
             .then(text => setObsah(text))
             .catch(error => console.log(error));
+
+        fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/obsah.json")
+            .then(response => response.json())
+            .then(response => setObsahHlavni(response))
+            // .then(text => setObsah(text))
+            .catch(error => console.log(error));
+
 
     }, [predmet]);
 
@@ -94,6 +106,7 @@ const PredmetMainPage = () => {
     }
 
 
+    console.warn(obsahHlavni)
 
 
 
@@ -109,16 +122,54 @@ const PredmetMainPage = () => {
 
 
                 <div class=" uk-search-large" style={{ display: "inline-flex" }}>
-                    <div style={{ display: "flex", textAlign: "center", justifyContent: "center", height: "50%" }}>
-
-                        <span class="material-symbols-outlined">search</span>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <span class="material-symbols-outlined" style={{ fontSize: "50px" }}>search</span>
                     </div>
                     <input class="uk-search-input" type="search" placeholder="Vyhledat téma" value={search} onChange={(e) => { setSearch(e.target.value); console.log(search); findLessons() }} />
                 </div>
+                <hr />
+
+
+                {!search &&
+
+                    <div className="uk-hidden@m">
+                        <h1>Obsah</h1>
+                        <ul uk-accordion="multiple: true">
+
+                            {console.log(obsahHlavni)}
+
+                            {
+                                Object.keys(obsahHlavni).map((key) => <li>
+                                    <a class="uk-accordion-title" href="#">{obsahHlavni[key].title}</a>
+                                    <div class="uk-accordion-content">
+                                        <ul>
+                                            {obsahHlavni[key].contents.map((item) =>
+                                                <li>
+                                                    <Link to={item.link}>{item.title}</Link>
+                                                </li>
+                                            )
+                                            }
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+                                )}
+
+                        </ul>
+
+
+
+
+
+                        <hr />
+                    </div>
+                }
 
                 <div className={search !== "" && "uk-animation-fade uk-animation-reverse uk-hidden"} >
                     <Vybery vybery={vybery} />
                 </div>
+
 
                 {search &&
                     <div className="" style={{ padding: "20px" }}>

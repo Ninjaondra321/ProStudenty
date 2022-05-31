@@ -6,9 +6,13 @@ import Markdown from "markdown-to-jsx";
 
 import { Link } from "react-router-dom";
 
+import Helmet from "react-helmet";
 
-const Tema = () => {
+
+const Tema = ({ infoOPredmetu }) => {
   let { predmet, tema } = useParams();
+
+  console.log(infoOPredmetu);
 
   const [tema_md, setTema_md] = useState('Nacitani...');
 
@@ -21,6 +25,18 @@ const Tema = () => {
   const [obsahNaMobiluIsShown, setObsahNaMobiluIsShown] = useState(false);
 
 
+  const [infoOTematu, setInfoOTematu] = useState(null)
+
+  useEffect(() => {
+    for (var key of Object.keys(infoOPredmetu)) {
+      if ([tema, "/" + tema].includes(infoOPredmetu[key].url)) {
+        setInfoOTematu(infoOPredmetu[key]);
+      }
+    }
+  }, [infoOPredmetu, tema]);
+
+
+
   if (prevTema !== tema) {
 
     fetch("https://raw.githubusercontent.com/Ninjaondra321/pro-studenty-sources/master/" + predmet + "/" + tema + ".md")
@@ -31,16 +47,11 @@ const Tema = () => {
       .catch(error => { navigate("/404", { replace: true }) })
 
 
-    // .catch(error => {
-    //   console.log(error);
-    //   navigate("/404", { replace: true });
-    // }
-
-    // );
-
     setPrevTema(tema);
 
   }
+
+  console.warn(tema_md)
 
 
   function generateContents() {
@@ -86,7 +97,7 @@ const Tema = () => {
 
 
       </div>
-      {!obsahNaMobiluIsShown && <div className="uk-hidden@l" onClick={() => setObsahNaMobiluIsShown(true)} style={{ position: "fixed", bottom: "15px", right: "15px", backgroundColor: "var(--secondary-color)", borderRadius: "50px", height: "30px", width: "30px", display: "flex", textAlign: "center", alignItems: "center" }}><span class="material-symbols-outlined" style={{ paddingLeft: "2px" }}>arrow_back_ios_new</span></div>}
+      {!obsahNaMobiluIsShown && <div className="uk-hidden@l" onClick={() => setObsahNaMobiluIsShown(true)} style={{ position: "fixed", bottom: "15px", right: "15px", backgroundColor: "var(--secondary-color)", borderRadius: "50px", height: "30px", width: "30px", display: "flex", textAlign: "center", alignItems: "center", cursor: "pointer" }}><span class="material-symbols-outlined" style={{ paddingLeft: "2px", color: "var(--background-color)" }}>arrow_back_ios_new</span></div>}
 
 
       {obsahNaMobiluIsShown &&
@@ -96,7 +107,7 @@ const Tema = () => {
           </button>
 
 
-          <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide uk-animation-slide-right" style={{ position: "absolute", left: "calc(100vw - 275px)" }}  >
+          <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide uk-animation-slide-right" style={{ position: "absolute", left: "calc(100vw - 270px)" }}  >
             <h3>{listOfIds[0]}</h3>
 
             <ul uk-scrollspy-nav="closest: li; scroll: true; offset: 100 "
@@ -115,6 +126,21 @@ const Tema = () => {
         </div>
 
       }
+
+
+      <Helmet>
+        {infoOPredmetu &&
+          <title>{"ProStudenty | " + infoOPredmetu.title}</title>
+        }
+        {
+          !infoOPredmetu &&
+          <title>{"ProStudenty | " + infoOTematu.title}</title>
+        }
+      </Helmet>
+
+
+
+
     </div >
   );
 }
