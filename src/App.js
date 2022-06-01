@@ -85,7 +85,7 @@ function App() {
         <Routes>
           <Route path="" element={<Homepage />} />
 
-          <Route path="settings" element={<Settings />} />
+          <Route path="settings" element={<Settings setTheme={setTheme} theme={theme} />} />
           <Route path="404" element={<Page404 />} />
           <Route path="about" element={<About />} />
           <Route path=":predmet" element={<PredmetTemplate />}>

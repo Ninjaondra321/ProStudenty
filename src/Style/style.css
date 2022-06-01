@@ -112,3 +112,13 @@
     width: 100%;
     opacity: 0.5;
 }
+
+.moje-carousel {
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 250px;
+
+}
+
+.moje-carousel .item {
+    scroll-snap-align: start;
+}

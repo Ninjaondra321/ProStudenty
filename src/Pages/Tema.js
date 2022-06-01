@@ -51,7 +51,6 @@ const Tema = ({ infoOPredmetu }) => {
 
   }
 
-  console.warn(tema_md)
 
 
   function generateContents() {
