@@ -122,3 +122,8 @@
 .moje-carousel .item {
     scroll-snap-align: start;
 }
+
+.uk-button-primary {
+
+    color: var(--text-color) !important;
+}

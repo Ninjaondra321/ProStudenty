@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Settings = ({ setTheme, theme }) => {
+const Settings = ({ setTheme, theme, userAgreedToAnal, setUserAgreedToAnal }) => {
+
+  useEffect(() => {
+    localStorage.setItem("ProStudenty-AGREED-TO-COOKIES", userAgreedToAnal);
+  }, [userAgreedToAnal]);
 
 
 
@@ -37,7 +41,7 @@ const Settings = ({ setTheme, theme }) => {
         <div>
           <label><input class="uk-checkbox" type="checkbox" checked={false} disabled /><b> Základní cookies</b> (aplikace místo nich využívá localhost)</label>
           <br />
-          <label><input class="uk-checkbox" type="checkbox" /><b>Statistické cookies</b> (sbírání dat pro vylepšení webu)</label>
+          <label><input class="uk-checkbox" type="checkbox" checked={userAgreedToAnal} onChange={(e) => setUserAgreedToAnal(e.target.checked)} /><b>Statistické cookies</b> (sbírání dat pro vylepšení webu)</label>
           <br />
           <label><input class="uk-checkbox" type="checkbox" checked={false} disabled /><b>Marketingové cookies</b> (aplikace reklamy nezobrazuje)</label>
           <br />

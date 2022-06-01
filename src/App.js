@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 
 
 import React from "react";
+import InitialSettings from "./Components/InitialSetting";
 
 
 
@@ -30,6 +31,9 @@ function App() {
   const [previousTheme, setPreviousTheme] = useState(null);
   // const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [infoOPredmetu, setInfoOPredmetu] = useState(null);
+  const [userAgreedToAnal, setUserAgreedToAnal] = useState(true);
+
+
 
 
   if (theme !== previousTheme || theme === null) {
@@ -74,7 +78,6 @@ function App() {
 
 
 
-
   return (
     <div className="App">
       <BrowserRouter basename="/ProStudenty">
@@ -82,10 +85,11 @@ function App() {
         <div className="uk-padding-small"></div>
         <div className="uk-padding-small"></div>
         <div className="uk-padding-small"></div>
+        <InitialSettings theme={theme} setTheme={setTheme} userAgreedToAnal={userAgreedToAnal} setUserAgreedToAnal={setUserAgreedToAnal} />
         <Routes>
           <Route path="" element={<Homepage />} />
 
-          <Route path="settings" element={<Settings setTheme={setTheme} theme={theme} />} />
+          <Route path="settings" element={<Settings setTheme={setTheme} theme={theme} userAgreedToAnal={userAgreedToAnal} setUserAgreedToAnal={setUserAgreedToAnal} />} />
           <Route path="404" element={<Page404 />} />
           <Route path="about" element={<About />} />
           <Route path=":predmet" element={<PredmetTemplate />}>
