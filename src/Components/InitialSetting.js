@@ -23,7 +23,7 @@ const InitialSettings = ({ theme, setTheme, userAgreedToAnal, setUserAgreedToAna
 
     function potvrditFormular() {
         localStorage.setItem("ProStudenty-AGREED-TO-COOKIES", true)
-        localStorage.setItem("ProStudenty-THEME", userAgreedToAnal);
+        localStorage.setItem("ProStudenty-THEME", theme);
         setIsShown(false);
     }
 

@@ -33,6 +33,20 @@ function App() {
   const [infoOPredmetu, setInfoOPredmetu] = useState(null);
   const [userAgreedToAnal, setUserAgreedToAnal] = useState(true);
 
+  const [isNew, setIsNew] = useState(false);
+
+
+  useEffect(() => {
+    try {
+      let x = localStorage.getItem("ProStudenty-AGREED-TO-COOKIES");
+      if (x === null) {
+        setIsNew(true);
+      }
+    } catch {
+      setIsNew(true)
+    }
+  }, []);
+
 
 
 
@@ -85,7 +99,10 @@ function App() {
         <div className="uk-padding-small"></div>
         <div className="uk-padding-small"></div>
         <div className="uk-padding-small"></div>
-        <InitialSettings theme={theme} setTheme={setTheme} userAgreedToAnal={userAgreedToAnal} setUserAgreedToAnal={setUserAgreedToAnal} />
+        {isNew &&
+
+          <InitialSettings theme={theme} setTheme={setTheme} userAgreedToAnal={userAgreedToAnal} setUserAgreedToAnal={setUserAgreedToAnal} />
+        }
         <Routes>
           <Route path="" element={<Homepage />} />
 
