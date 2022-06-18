@@ -186,10 +186,10 @@ const PredmetMainPage = ({ setGlobalInfoOPredmetu }) => {
 
                         {vysledkyVyhledavani.map((tema) =>
                             <Link to={upravLink(tema.url)} >
-                                <div className="uk-card uk-card-default uk-link-reset">
+                                <div className="uk-card uk-card-default uk-link-reset uk-card-hover" style={{ marginBottom: "15px" }}>
                                     <div className="uk-card-body uk-link-reset">
 
-                                        <h3 className="uk-card-title uk-link-reset">{tema.title}</h3>
+                                        <h3 className="uk-card-title uk-link-reset " >{tema.title}</h3>
                                         <p className="uk-link-reset">{tema.ukazka}</p>
                                     </div>
                                 </div>

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
+
+
 const NavBar = ({ theme, setTheme }) => {
 
     const [dropdownIsShown, setDropdownIsShown] = useState(false);
@@ -16,7 +18,31 @@ const NavBar = ({ theme, setTheme }) => {
                 <div className="uk-navbar-left nav-overlay">
 
                     <ul className="uk-navbar-nav">
-                        <Link to="/" className="uk-navbar-item uk-logo">ProStudenty</Link>
+                        <Link to="/" className="uk-navbar-item uk-logo">
+                            {/* <p>
+
+                                <svg width="40" height="40" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_105_2)">
+
+                                        <path d="M483.111 174.303C498.595 174.995 504.147 195.097 491.213 203.638L370.257 283.516C364.473 287.336 361.806 294.446 363.651 301.127L369.639 322.806C374.814 341.543 348.394 351.56 339.847 334.102L271.529 194.572L158.193 361.916C147.567 377.606 123.31 365.068 129.965 347.325L150.86 291.615C153.294 285.125 151.273 277.805 145.852 273.484L32.506 183.132C20.386 173.47 27.7097 153.944 43.1938 154.636L196.5 161.49C198.557 161.582 200.576 162.07 202.448 162.927L271.529 194.572L323 169.134C325.421 167.937 328.105 167.373 330.803 167.494L483.111 174.303Z" fill="black" />
+                                    </g>
+                                    <defs>
+                                        <filter id="filter0_f_105_2" x="-43" y="-19" width="598" height="521" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                                            <feGaussianBlur stdDeviation="54.5" result="effect1_foregroundBlur_105_2" />
+                                        </filter>
+                                        <clipPath id="clip0_105_2">
+                                            <rect width="512" height="512" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </p> */}
+
+
+
+                            ProStudenty
+                        </Link>
                         <li className="uk-visible@s">
                             {
                                 dropdownIsShown &&

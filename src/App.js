@@ -23,6 +23,11 @@ import { useEffect, useState } from "react";
 import React from "react";
 import InitialSettings from "./Components/InitialSetting";
 
+import ReactGA from 'react-ga';
+
+
+
+
 
 
 function App() {
@@ -68,6 +73,14 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    if (userAgreedToAnal) {
+      ReactGA.initialize('G-7DZW0BBJK8');
+      ReactGA.pageview(window.location.pathname + window.location.search);
+
+    }
+  }, [isNew])
+
 
 
 
@@ -89,6 +102,8 @@ function App() {
       document.documentElement.style.setProperty('--shadow-color-02', 'rgba(0, 0, 0, 16%)');
     }
   }
+
+
 
 
 
