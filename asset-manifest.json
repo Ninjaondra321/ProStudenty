@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/ProStudenty/static/css/main.96474728.css",
-    "main.js": "/ProStudenty/static/js/main.fb99e5e7.js",
+    "main.css": "/ProStudenty/static/css/main.75d2bc7d.css",
+    "main.js": "/ProStudenty/static/js/main.42d9fab1.js",
     "static/js/787.99025926.chunk.js": "/ProStudenty/static/js/787.99025926.chunk.js",
+    "static/media/ProximaNova-Sbold-webfont.woff2": "/ProStudenty/static/media/ProximaNova-Sbold-webfont.9f547017d03915d8a2a5.woff2",
+    "static/media/ProximaNova-Reg-webfont.woff2": "/ProStudenty/static/media/ProximaNova-Reg-webfont.f01f829caa208145a0ae.woff2",
+    "static/media/ProximaNova-Light-webfont.woff2": "/ProStudenty/static/media/ProximaNova-Light-webfont.2db46f720459660b96f7.woff2",
+    "static/media/roboto-mono-regular.woff2": "/ProStudenty/static/media/roboto-mono-regular.f1dc10a756c2c544588b.woff2",
     "index.html": "/ProStudenty/index.html",
-    "main.96474728.css.map": "/ProStudenty/static/css/main.96474728.css.map",
-    "main.fb99e5e7.js.map": "/ProStudenty/static/js/main.fb99e5e7.js.map",
+    "main.75d2bc7d.css.map": "/ProStudenty/static/css/main.75d2bc7d.css.map",
+    "main.42d9fab1.js.map": "/ProStudenty/static/js/main.42d9fab1.js.map",
     "787.99025926.chunk.js.map": "/ProStudenty/static/js/787.99025926.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.96474728.css",
-    "static/js/main.fb99e5e7.js"
+    "static/css/main.75d2bc7d.css",
+    "static/js/main.42d9fab1.js"
   ]
 }
