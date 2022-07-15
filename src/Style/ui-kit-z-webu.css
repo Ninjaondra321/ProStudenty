@@ -1,5 +1,5 @@
 html {
-    /* font-family: ProximaNova, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
+    font-family: ProximaNova, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 15px;
     font-weight: 400;
     line-height: 1.5;
@@ -10945,22 +10945,22 @@ iframe[uk-cover] {
 }
 
 @font-face {
-    /* font-family: ProximaNova; */
-    /* src: url(../fonts/ProximaNova-Light-webfont.woff2) format('woff2'), url(../fonts/ProximaNova-Light-webfont.woff) format('woff'); */
+    font-family: ProximaNova;
+    src: url(../Style/ProximaNova-Light-webfont.woff2) format('woff2');
     font-weight: 300;
     font-style: normal
 }
 
 @font-face {
-    /* font-family: ProximaNova; */
-    /* src: url(../fonts/ProximaNova-Reg-webfont.woff2) format('woff2'), url(../fonts/ProximaNova-Reg-webfont.woff) format('woff'); */
+    font-family: ProximaNova;
+    src: url(../Style/ProximaNova-Reg-webfont.woff2) format('woff2');
     font-weight: 400;
     font-style: normal
 }
 
 @font-face {
-    /* font-family: ProximaNova; */
-    /* src: url(../fonts/ProximaNova-Sbold-webfont.woff2) format('woff2'), url(../fonts/ProximaNova-Sbold-webfont.woff) format('woff'); */
+    font-family: ProximaNova;
+    src: url(../Style/ProximaNova-Sbold-webfont.woff2) format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap
@@ -10968,15 +10968,15 @@ iframe[uk-cover] {
 
 @font-face {
     /* font-family: Montserrat; */
-    /* src: url(../fonts/montserrat-600.woff2) format('woff2'), url(../fonts/montserrat-600.woff) format('woff'); */
+    /* src: url(../Style/montserrat-600.woff2) format('woff2'); */
     font-weight: 600;
     font-style: normal;
     font-display: swap
 }
 
 @font-face {
-    /* font-family: 'Roboto Mono'; */
-    /* src: url(../fonts/roboto-mono-regular.woff2) format('woff2'), url(../fonts/roboto-mono-regular.woff) format('woff'); */
+    font-family: 'Roboto Mono';
+    src: url(../Style/roboto-mono-regular.woff2) format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap
@@ -11264,4 +11264,10 @@ body {
     .tm-intro-image {
         margin-right: -75px
     }
+}
+
+
+
+html {
+    font-family: 'Satoshi', sans-serif;
 }

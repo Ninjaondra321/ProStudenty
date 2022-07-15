@@ -24,8 +24,9 @@ import React from "react";
 import InitialSettings from "./Components/InitialSetting";
 
 import ReactGA from 'react-ga';
+import { Helmet } from "react-helmet";
 
-
+import MojeAnalytics from "./Analytics/googleAnal";
 
 
 
@@ -75,8 +76,8 @@ function App() {
 
   useEffect(() => {
     if (userAgreedToAnal) {
-      ReactGA.initialize('G-7DZW0BBJK8');
-      ReactGA.pageview(window.location.pathname + window.location.search);
+      // ReactGA.initialize('G-7DZW0BBJK8');
+      // ReactGA.pageview(window.location.pathname + window.location.search);
 
     }
   }, [isNew])
@@ -118,6 +119,10 @@ function App() {
 
           <InitialSettings theme={theme} setTheme={setTheme} userAgreedToAnal={userAgreedToAnal} setUserAgreedToAnal={setUserAgreedToAnal} />
         }
+
+
+
+
         <Routes>
           <Route path="" element={<Homepage />} />
 
@@ -134,6 +139,7 @@ function App() {
         <NavBar theme={theme} setTheme={setTheme} />
       </BrowserRouter>
 
+      <MojeAnalytics isNew={isNew} userAgreedToAnal={userAgreedToAnal} />
     </div>
   );
 }

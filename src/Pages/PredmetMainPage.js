@@ -132,7 +132,7 @@ const PredmetMainPage = ({ setGlobalInfoOPredmetu }) => {
 
                 {!search &&
 
-                    <div className="uk-hidden@m">
+                    <div className="uk-hidden@l">
                         <h1>Obsah</h1>
 
                         {obsahHlavni &&

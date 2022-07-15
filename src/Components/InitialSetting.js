@@ -42,6 +42,7 @@ const InitialSettings = ({ theme, setTheme, userAgreedToAnal, setUserAgreedToAna
                             <div>
                                 <h3>Vzhled</h3>
                                 <p>Vyber si vzhled, který chceš používat</p>
+                                <h1>POZOR!! Stránka nefunguje jak má - jestli nesouhlasíte s cookies, zatím stránku nepoužívejte!!!</h1>
 
                                 <div>
                                     <label><input class="uk-radio uk-hidden" type="radio" name="theme" />
