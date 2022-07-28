@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom/client";
 import {
   BrowserRouter,
+  HashRouter,
   Routes,
   Route,
 } from "react-router-dom";
@@ -15,8 +16,14 @@ import About from "./Pages/About";
 import PredmetMainPage from "./Pages/PredmetMainPage";
 import PredmetTemplate from "./Pages/PredmetTemplate";
 
+import Footer from "./Components/Footer";
+
+
 import "./Style/ui-kit-z-webu.css";
 import "./Style/style.css";
+
+
+
 import { useEffect, useState } from "react";
 
 
@@ -37,7 +44,7 @@ function App() {
   const [previousTheme, setPreviousTheme] = useState(null);
   // const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [infoOPredmetu, setInfoOPredmetu] = useState(null);
-  const [userAgreedToAnal, setUserAgreedToAnal] = useState(true);
+  const [userAgreedToAnal, setUserAgreedToAnal] = useState(null);
 
   const [isNew, setIsNew] = useState(false);
 
@@ -45,8 +52,10 @@ function App() {
   useEffect(() => {
     try {
       let x = localStorage.getItem("ProStudenty-AGREED-TO-COOKIES");
-      if (x === null) {
-        setIsNew(true);
+      if (x == "false") {
+        setUserAgreedToAnal(false)
+      } else {
+        setUserAgreedToAnal(true)
       }
     } catch {
       setIsNew(true)
@@ -110,13 +119,12 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter basename="/ProStudenty">
+      <HashRouter  >
         {/* <NavBar theme={theme} changeTheme={changeTheme} /> */}
         <div className="uk-padding-small"></div>
         <div className="uk-padding-small"></div>
         <div className="uk-padding-small"></div>
         {isNew &&
-
           <InitialSettings theme={theme} setTheme={setTheme} userAgreedToAnal={userAgreedToAnal} setUserAgreedToAnal={setUserAgreedToAnal} />
         }
 
@@ -124,12 +132,12 @@ function App() {
 
 
         <Routes>
-          <Route path="" element={<Homepage />} />
+          <Route path="/" element={<Homepage />} />
 
-          <Route path="settings" element={<Settings setTheme={setTheme} theme={theme} userAgreedToAnal={userAgreedToAnal} setUserAgreedToAnal={setUserAgreedToAnal} />} />
-          <Route path="404" element={<Page404 />} />
-          <Route path="about" element={<About />} />
-          <Route path=":predmet" element={<PredmetTemplate />}>
+          <Route path="/settings" element={<Settings setTheme={setTheme} theme={theme} userAgreedToAnal={userAgreedToAnal} setUserAgreedToAnal={setUserAgreedToAnal} />} />
+          <Route path="/404" element={<Page404 />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/:predmet" element={<PredmetTemplate />}>
             <Route path="" element={<PredmetMainPage setGlobalInfoOPredmetu={setInfoOPredmetu} />} />
             <Route path=":tema" element={<Tema infoOPredmetu={infoOPredmetu} />} />
 
@@ -137,9 +145,10 @@ function App() {
 
         </Routes>
         <NavBar theme={theme} setTheme={setTheme} />
-      </BrowserRouter>
 
+      </HashRouter>
       <MojeAnalytics isNew={isNew} userAgreedToAnal={userAgreedToAnal} />
+
     </div>
   );
 }

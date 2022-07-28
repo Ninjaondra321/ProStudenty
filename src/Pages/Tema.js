@@ -70,9 +70,12 @@ const Tema = ({ infoOPredmetu }) => {
     <div class="tm-main uk-section uk-section-default">
       <div class="uk-container uk-container-small uk-position-relative">
 
-        <Markdown options={{ slugify: str => str }}>
-          {tema_md}
-        </Markdown>
+        <div id="ContentToPrint">
+
+          <Markdown options={{ slugify: str => str }}>
+            {tema_md}
+          </Markdown>
+        </div>
 
 
         <div class="tm-sidebar-right moje-obsah">

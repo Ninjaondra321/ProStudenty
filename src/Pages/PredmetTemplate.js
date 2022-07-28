@@ -3,6 +3,8 @@ import { useParams, useNavigate, Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SideBarObsah from "../Components/SideBar";
 
+import Footer from "../Components/Footer";
+
 const PredmetTemplate = () => {
   let { predmet, tema } = useParams();
   const [prevPredmet, setPrevPredmet] = useState('');
@@ -73,6 +75,8 @@ const PredmetTemplate = () => {
       <SideBarObsah obsah={obsah} predmet={predmet} />
 
       <Outlet />
+
+
     </div >
   );
 }

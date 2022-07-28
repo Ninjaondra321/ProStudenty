@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import CarouselCard from "../Components/CarouselCard";
 import Carousel from "../Components/Carousel";
 
+
+import Footer from "../Components/Footer";
+
 import Vybery from "../Components/Vybery";
 
 
@@ -209,7 +212,11 @@ const PredmetMainPage = ({ setGlobalInfoOPredmetu }) => {
             </div>
                 )}*/}
 
+
             </div>
+
+
+
         </div >
 
         // <div class="tm-main  uk-section-default">
